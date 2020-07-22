@@ -1,6 +1,6 @@
 {
   "name": "formatjs-esperanto",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Esperanto locale for FormatJS",
   "author": "kotwys",
   "license": "MIT",
@@ -11,7 +11,9 @@
   },
   "devDependencies": {
     "fs-extra": "^9.0.1",
+    "make-plural-compiler": "^5.1.0",
     "rimraf": "^3.0.2",
+    "serialize-javascript": "^4.0.0",
     "uglify-js": "^3.10.0"
   }
 }

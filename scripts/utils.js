@@ -22,3 +22,17 @@ module.exports.minify = function (code) {
 
   return result.code;
 }
+
+/**
+ * Transform all object's keys.
+ * 
+ * @param {object} object
+ * @param {function} transform
+ * @returns new object with new keys
+ */
+module.exports.transformKeys = function (object, transform) {
+  return Object.keys(object).reduce((result, key) => {
+    result[transform(key)] = object[key];
+    return result;
+  }, {});
+}

@@ -8,6 +8,7 @@ some dummy values.
 
 🚨 **Work in Progress**. The current translations include:
 
+- `Intl.PluralRules`
 - `Intl.RelativeTimeFormat`
 
 ## Usage
