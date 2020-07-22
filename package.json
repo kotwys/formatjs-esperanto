@@ -1,0 +1,17 @@
+{
+  "name": "formatjs-esperanto",
+  "version": "0.1.0",
+  "description": "Esperanto locale for FormatJS",
+  "author": "kotwys",
+  "license": "MIT",
+  "scripts": {
+    "clean": "yarn rimraf ./dist",
+    "prebuild": "yarn clean",
+    "build": "node ./scripts/build.js"
+  },
+  "devDependencies": {
+    "fs-extra": "^9.0.1",
+    "rimraf": "^3.0.2",
+    "uglify-js": "^3.10.0"
+  }
+}

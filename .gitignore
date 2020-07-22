@@ -1,0 +1,5 @@
+# NodeJS dependencies
+node_modules/
+
+# Built artifacts
+dist/
