@@ -1,9 +1,11 @@
 {
-  "name": "formatjs-esperanto",
+  "name": "@kotwys/formatjs-esperanto",
   "version": "0.2.0",
   "description": "Esperanto locale for FormatJS",
   "author": "kotwys",
   "license": "MIT",
+  "repository": "github:kotwys/formatjs-esperanto",
+  "homepage": "https://github.com/kotwys/formatjs-esperanto",
   "scripts": {
     "clean": "yarn rimraf ./dist",
     "prebuild": "yarn clean",
@@ -15,5 +17,12 @@
     "rimraf": "^3.0.2",
     "serialize-javascript": "^4.0.0",
     "uglify-js": "^3.10.0"
-  }
+  },
+  "keywords": [
+    "internationalization",
+    "i18n",
+    "intl",
+    "esperanto",
+    "formatjs"
+  ]
 }
