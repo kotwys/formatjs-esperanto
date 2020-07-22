@@ -1,11 +1,5 @@
 const { outputFile } = require('fs-extra');
-const { minify } = require('uglify-js');
-
-const minifyOptions = {
-  output: {
-    preamble: '/* @generated */'
-  }
-};
+const { minify } = require('./utils.js');
 
 /**
  * Creates a locale for `Intl.RelativeTimeFormat`.
@@ -13,7 +7,7 @@ const minifyOptions = {
  */
 function buildRelativeTimeFormat() {
   const data = require('./data/relativetime.json');
-  const result = minify(`
+  return minify(`
     Intl.RelativeTimeFormat
       && typeof Intl.RelativeTimeFormat.__addLocaleData === 'function'
       && Intl.RelativeTimeFormat.__addLocaleData({
@@ -22,9 +16,7 @@ function buildRelativeTimeFormat() {
         aliases: {},
         parentLocales: {}
       });
-  `, minifyOptions);
-  
-  return result.code;
+  `);
 }
 
 Promise.all[
