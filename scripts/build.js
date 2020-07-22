@@ -4,27 +4,46 @@ const { minify, transformKeys } = require('./utils.js');
 const PluralCompiler = require('make-plural-compiler');
 
 /**
- * Creates a locale for `Intl.RelativeTimeFormat`.
+ * Parameters object for `locale` function.
+ *
+ * @typedef {Object} LocaleParams
+ * @property {string} api - Intl's API to create locale for
+ * @property {string} locale - code of the locale
+ * @property {object} data
+ * @property {boolean} [isJSON] - whether the data is JSON-compatible. true by default
+ */
+
+/**
+ * Creates locale file with specified data.
+ *
+ * @param {LocaleParams} props
  * @returns a string with locale code
  */
-function buildRelativeTimeFormat() {
-  const data = require('./data/relativetime.json');
+function locale(props) {
+  props.isJSON = props.isJSON == undefined ? true : props.isJSON;
+  const { api, locale, data, isJSON } = props;
+  const serializedData = serialize(data, { isJSON });
   return minify(`
-    Intl.RelativeTimeFormat
-      && typeof Intl.RelativeTimeFormat.__addLocaleData === 'function'
-      && Intl.RelativeTimeFormat.__addLocaleData({
-        data: {eo: ${JSON.stringify(data)}}, 
-        availableLocales: ["eo"],
+    Intl.${api}
+      && typeof Intl.${api}.__addLocaleData === 'function'
+      && Intl.${api}.__addLocaleData({
+        data: { ${locale}: ${serializedData} },
+        availableLocales: ["${locale}"],
         aliases: {},
         parentLocales: {}
       });
   `);
 }
 
-/**
- * Creates a locale for `Intl.PluralRules`.
- * @returns a string with locale code
- */
+function buildRelativeTimeFormat() {
+  const data = require('./data/relativetime.json');
+  return locale({
+    api: 'RelativeTimeFormat',
+    locale: 'eo',
+    data
+  });
+}
+
 function buildPluralRules() {
   const source = require('./data/pluralrules.json');
   PluralCompiler.rules = {
@@ -46,16 +65,12 @@ function buildPluralRules() {
     fn: compiler.compile()
   };
 
-  return minify(`
-    Intl.PluralRules
-      && typeof Intl.PluralRules.__addLocaleData === 'function'
-      && Intl.PluralRules.__addLocaleData({
-        data: {eo: ${serialize(data)}},
-        aliases: {},
-        parentLocales: {},
-        availableLocales: ["eo"]
-      });
-  `);
+  return locale({
+    api: 'PluralRules',
+    locale: 'eo',
+    data,
+    isJSON: false
+  });
 }
 
 Promise.all[
