@@ -1,3 +1,5 @@
+const fs = require('fs');
+const { join } = require('path');
 const { outputFile } = require('fs-extra');
 const serialize = require('serialize-javascript');
 const { minify, transformKeys } = require('./utils.js');
@@ -65,11 +67,27 @@ function buildPluralRules() {
   });
 }
 
-Promise.all[
-  outputFile('dist/relativetimeformat.js', locale({
+/**
+ * Create locale artifact with TypeScript definition.
+ *
+ * The locales don't export anything but still need a definition.
+ *
+ * @param {string} path - path to the .js output
+ * @param {string} content
+ * @returns {Promise} resolving when all's done
+ */
+function artifact(path, content) {
+  return Promise.all([
+    outputFile(path, content),
+    outputFile(path.replace(/\.js$/, '.d.ts'), 'export { };\n')
+  ]);
+}
+
+Promise.all([
+  artifact('dist/relativetimeformat.js', locale({
     api: 'RelativeTimeFormat',
     locale: LOCALE,
     data: require('./data/relativetime.json')
   })),
-  outputFile('dist/pluralrules.js', buildPluralRules())
-];
+  artifact('dist/pluralrules.js', buildPluralRules())
+]);
