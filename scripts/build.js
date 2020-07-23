@@ -3,6 +3,8 @@ const serialize = require('serialize-javascript');
 const { minify, transformKeys } = require('./utils.js');
 const PluralCompiler = require('make-plural-compiler');
 
+const LOCALE = 'eo';
+
 /**
  * Parameters object for `locale` function.
  *
@@ -35,45 +37,39 @@ function locale(props) {
   `);
 }
 
-function buildRelativeTimeFormat() {
-  const data = require('./data/relativetime.json');
-  return locale({
-    api: 'RelativeTimeFormat',
-    locale: 'eo',
-    data
-  });
-}
-
 function buildPluralRules() {
   const source = require('./data/pluralrules.json');
+  const transform = k => `pluralRule-count-${k}`;
   PluralCompiler.rules = {
     cardinal: {
-      eo: transformKeys(source.cardinal, k => `pluralRule-count-${k}`)
+      [LOCALE]: transformKeys(source.cardinal, transform)
     },
     ordinal: {
-      eo: transformKeys(source.ordinal, k => `pluralRule-count-${k}`)
+      [LOCALE]: transformKeys(source.ordinal, transform)
     }
   };
 
-  const compiler = new PluralCompiler('eo', {
+  const compiler = new PluralCompiler(LOCALE, {
     cardinals: true,
     ordinals: true
   });
 
-  const data = {
-    categories: compiler.categories,
-    fn: compiler.compile()
-  };
-
   return locale({
     api: 'PluralRules',
-    locale: 'eo',
-    data,
+    locale: LOCALE,
+    data: {
+      categories: compiler.categories,
+      fn: compiler.compile()
+    },
     isJSON: false
   });
 }
 
 Promise.all[
-  outputFile('dist/relativetimeformat.js', buildRelativeTimeFormat()),
+  outputFile('dist/relativetimeformat.js', locale({
+    api: 'RelativeTimeFormat',
+    locale: LOCALE,
+    data: require('./data/relativetime.json')
+  })),
   outputFile('dist/pluralrules.js', buildPluralRules())
 ];
