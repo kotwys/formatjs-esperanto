@@ -17,7 +17,7 @@ Simply import the corresponding file from `dist` folder as follows:
 
 ```js
 // For example, locale for Intl.RelativeTimeFormat
-import 'formatjs-esperanto/dist/relativetimeformat.js';
+import '@kotwys/formatjs-esperanto/dist/relativetimeformat.js';
 ```
 
 ## Building

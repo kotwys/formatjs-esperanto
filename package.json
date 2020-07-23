@@ -9,7 +9,8 @@
   "scripts": {
     "clean": "yarn rimraf ./dist",
     "prebuild": "yarn clean",
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.js",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "fs-extra": "^9.0.1",
