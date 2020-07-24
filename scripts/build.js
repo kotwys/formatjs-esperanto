@@ -38,7 +38,7 @@ function locale(props) {
 }
 
 async function buildPluralRules() {
-  const source = await yamlFile('./data/pluralrules.yml');
+  const source = await yamlFile('data/pluralrules.yml');
   const transform = k => `pluralRule-count-${k}`;
   PluralCompiler.rules = {
     cardinal: {
@@ -80,7 +80,7 @@ async function artifact(path, content) {
 }
 
 Promise.all([
-  yamlFile('./data/relativetime.yml').then(data => artifact(
+  yamlFile('data/relativetime.yml').then(data => artifact(
     'dist/relativetimeformat.js',
     locale({
       api: 'RelativeTimeFormat',
@@ -89,7 +89,7 @@ Promise.all([
     })
   )),
   buildPluralRules().then(content => artifact('dist/pluralrules.js', content)),
-  yamlFile('./data/listformat.yml').then(data => artifact(
+  yamlFile('data/listformat.yml').then(data => artifact(
     'dist/listformat.js',
     locale({
       api: 'ListFormat',

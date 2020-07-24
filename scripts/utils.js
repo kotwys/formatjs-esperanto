@@ -50,7 +50,7 @@ module.exports.transformKeys = function (object, transform) {
  */
 module.exports.yamlFile = function (filepath) {
   return new Promise((resolve, reject) => {
-    fs.readFile(path.resolve(__dirname, filepath), { encoding: 'utf8' }, (err, data) => {
+    fs.readFile(path.resolve(filepath), { encoding: 'utf8' }, (err, data) => {
       if (err)
         reject(err);
 
