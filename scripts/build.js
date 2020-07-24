@@ -1,8 +1,6 @@
-const fs = require('fs');
-const { join } = require('path');
 const { outputFile } = require('fs-extra');
 const serialize = require('serialize-javascript');
-const { minify, transformKeys } = require('./utils.js');
+const { minify, transformKeys, yamlFile } = require('./utils.js');
 const PluralCompiler = require('make-plural-compiler');
 
 const LOCALE = 'eo';
@@ -39,8 +37,8 @@ function locale(props) {
   `);
 }
 
-function buildPluralRules() {
-  const source = require('./data/pluralrules.json');
+async function buildPluralRules() {
+  const source = await yamlFile('./data/pluralrules.yml');
   const transform = k => `pluralRule-count-${k}`;
   PluralCompiler.rules = {
     cardinal: {
@@ -76,18 +74,19 @@ function buildPluralRules() {
  * @param {string} content
  * @returns {Promise} resolving when all's done
  */
-function artifact(path, content) {
-  return Promise.all([
-    outputFile(path, content),
-    outputFile(path.replace(/\.js$/, '.d.ts'), 'export { };\n')
-  ]);
+async function artifact(path, content) {
+  await outputFile(path, content);
+  await outputFile(path.replace(/\.js$/, '.d.ts'), 'export { };\n');
 }
 
 Promise.all([
-  artifact('dist/relativetimeformat.js', locale({
-    api: 'RelativeTimeFormat',
-    locale: LOCALE,
-    data: require('./data/relativetime.json')
-  })),
-  artifact('dist/pluralrules.js', buildPluralRules())
+  yamlFile('./data/relativetime.yml').then(data => artifact(
+    'dist/relativetimeformat.js',
+    locale({
+      api: 'RelativeTimeFormat',
+      locale: LOCALE,
+      data
+    })
+  )),
+  buildPluralRules().then(content => artifact('dist/pluralrules.js', content))
 ]);

@@ -1,0 +1,229 @@
+nu: [latn]
+year:
+  -1: en la pasinta jaro
+  0: en ĉi tiu jaro
+  1: en la sekva jaro
+  past:
+    one: antaŭ {0} jaro
+    other: antaŭ {0} jaroj
+  future:
+    one: post {0} jaro
+    other: post {0} jaroj
+year-short:
+  -1: pasintjare
+  0: ĉi-jare
+  1: venontjare
+  past:
+    one: antaŭ {0} jaro
+    other: antaŭ {0} jaroj
+  future:
+    one: post {0} jaro
+    other: post {0} jaroj
+year-narrow:
+  -1: pasintjare
+  0: ĉi-jare
+  1: venontjare
+  past:
+    one: antaŭ {0} jaro
+    other: antaŭ {0} jaroj
+  future:
+    one: post {0} jaro
+    other: post {0} jaroj
+quarter:
+  -1: en la pasinta kvaronjaro
+  0: en ĉi tiu kvaronjaro
+  1: en la venonta kvaronjaro
+  past:
+    one: antaŭ {0} kvaronjaro
+    other: antaŭ {0} kvaronjaroj
+  future:
+    one: post {0} kvaronjaro
+    other: post {0} kvaronjaroj
+quarter-short:
+  -1: pasintkvaronjare
+  0: ĉi-kvaronjare
+  1: venontkvaronjare
+  past:
+    one: antaŭ {0} kvaronjaro
+    other: antaŭ {0} kvaronjaroj
+  future:
+    one: post {0} kvaronjaro
+    other: post {0} kvaronjaroj
+quarter-narrow:
+  -1: pasintkvaronjare
+  0: ĉi-kvaronjare
+  1: venontkvaronjare
+  past:
+    one: antaŭ {0} kvaronjaro
+    other: antaŭ {0} kvaronjaroj
+  future:
+    one: post {0} kvaronjaro
+    other: post {0} kvaronjaroj
+month:
+  -1: en la pasinta monato
+  0: en ĉi tiu monato
+  1: en la venonta monato
+  past:
+    one: antaŭ {0} monato
+    other: antaŭ {0} monatoj
+  future:
+    one: post {0} monato
+    other: post {0} monatoj
+month-short:
+  -1: pasintmonate
+  0: ĉi-monate
+  1: venontmonate
+  past:
+    one: antaŭ {0} monato
+    other: antaŭ {0} monatoj
+  future:
+    one: post {0} monato
+    other: post {0} monatoj
+month-narrow:
+  -1: pasintmonate
+  0: ĉi-monate
+  1: venontmonate
+  past:
+    one: antaŭ {0} monato
+    other: antaŭ {0} monatoj
+  future:
+    one: post {0} monato
+    other: post {0} monatoj
+week:
+  -1: en la pasinta semajno
+  0: en ĉi tiu semajno
+  1: en la venonta semajno
+  past:
+    one: antaŭ {0} semajno
+    other: antaŭ {0} semajnoj
+  future:
+    one: post {0} semajno
+    other: post {0} semajnoj
+week-short:
+  -1: pasintsemajne
+  0: ĉi-semajne
+  1: venontsemajne
+  past:
+    one: antaŭ {0} semajno
+    other: antaŭ {0} semajnoj
+  future:
+    one: post {0} semajno
+    other: post {0} semajnoj
+week-narrow:
+  -1: pasintsemajne
+  0: ĉi-semajne
+  1: venontsemajne
+  past:
+    one: antaŭ {0} semajno
+    other: antaŭ {0} semajnoj
+  future:
+    one: post {0} semajno
+    other: post {0} semajnoj
+day:
+  -2: antaŭhieraŭ
+  -1: hieraŭ
+  0: hodiaŭ
+  1: morgaŭ
+  2: postmorgaŭ
+  past:
+    one: antaŭ {0} tago
+    other: antaŭ {0} tagoj
+  future:
+    one: post {0} tago
+    other: post {0} tagoj
+day-short:
+  -2: antaŭhieraŭ
+  -1: hieraŭ
+  0: hodiaŭ
+  1: morgaŭ
+  2: postmorgaŭ
+  past:
+    one: antaŭ {0} tago
+    other: antaŭ {0} tagoj
+  future:
+    one: post {0} tago
+    other: post {0} tagoj
+day-narrow:
+  -2: antaŭhieraŭ
+  -1: hieraŭ
+  0: hodiaŭ
+  1: morgaŭ
+  2: postmorgaŭ
+  past:
+    one: antaŭ {0} tago
+    other: antaŭ {0} tagoj
+  future:
+    one: post {0} tago
+    other: post {0} tagoj
+hour:
+  0: en ĉi tiu horo
+  past:
+    one: antaŭ {0} horo
+    other: antaŭ {0} horoj
+  future:
+    one: post {0} horo
+    other: post {0} horoj
+hour-short:
+  0: ĉi-hore
+  past:
+    one: antaŭ {0} horo
+    other: antaŭ {0} horoj
+  future:
+    one: post {0} horo
+    other: post {0} horoj
+hour-narrow:
+  0: ĉi-hore
+  past:
+    one: antaŭ {0} horo
+    other: antaŭ {0} horoj
+  future:
+    one: post {0} horo
+    other: post {0} horoj
+minute:
+  0: en ĉi tiu minuto
+  past:
+    one: antaŭ {0} minuto
+    other: antaŭ {0} minutoj
+  future:
+    one: post {0} minuto
+    other: post {0} minutoj
+minute-short:
+  0: ĉi-minute
+  past:
+    one: antaŭ {0} minuto
+    other: antaŭ {0} minutoj
+  future:
+    one: post {0} minuto
+    other: post {0} minutoj
+minute-narrow:
+  0: ĉi-minute
+  past:
+    one: antaŭ {0} minuto
+    other: antaŭ {0} minutoj
+  future:
+    one: post {0} minuto
+    other: post {0} minutoj
+second:
+  0: en ĉi tiu sekundo
+  past:
+    one: antaŭ {0} sekundo
+    other: antaŭ {0} sekundoj
+  future:
+    one: post {0} sekundo
+    other: post {0} sekundoj
+second-short:
+  0: ĉi-sekunde
+  past:
+    one: antaŭ {0} sekundo
+    other: antaŭ {0} sekundoj
+  future:
+    one: post {0} sekundo
+    other: post {0} sekundoj
+second-narrow:
+  0: ĉi-sekunde
+  past:
+    one: antaŭ {0} sekundo
+    other: antaŭ {0} sekundoj
+  future:
+    one: post {0} sekundo
+    other: post {0} sekundoj

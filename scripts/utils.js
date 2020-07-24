@@ -1,4 +1,9 @@
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
 const UglifyJS = require('uglify-js');
+const yaml = require('js-yaml');
 
 /**
  * Minifies JS code.
@@ -35,4 +40,21 @@ module.exports.transformKeys = function (object, transform) {
     result[transform(key)] = object[key];
     return result;
   }, {});
+}
+
+/**
+ * Read YAML file.
+ *
+ * @param {string} filepath
+ * @returns {Promise}
+ */
+module.exports.yamlFile = function (filepath) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path.resolve(__dirname, filepath), { encoding: 'utf8' }, (err, data) => {
+      if (err)
+        reject(err);
+
+      resolve(yaml.safeLoad(data));
+    });
+  });
 }
