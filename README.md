@@ -10,6 +10,7 @@ some dummy values.
 
 - `Intl.PluralRules`
 - `Intl.RelativeTimeFormat`
+- `Intl.ListFormat`
 
 ## Usage
 

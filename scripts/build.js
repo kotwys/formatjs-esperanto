@@ -88,5 +88,13 @@ Promise.all([
       data
     })
   )),
-  buildPluralRules().then(content => artifact('dist/pluralrules.js', content))
+  buildPluralRules().then(content => artifact('dist/pluralrules.js', content)),
+  yamlFile('./data/listformat.yml').then(data => artifact(
+    'dist/listformat.js',
+    locale({
+      api: 'ListFormat',
+      locale: LOCALE,
+      data
+    })
+  )),
 ]);
