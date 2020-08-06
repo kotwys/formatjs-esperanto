@@ -80,7 +80,7 @@ async function artifact(path, content) {
 }
 
 Promise.all([
-  yamlFile('data/relativetime.yml').then(data => artifact(
+  yamlFile('data/relativetimeformat.yml').then(data => artifact(
     'dist/relativetimeformat.js',
     locale({
       api: 'RelativeTimeFormat',
