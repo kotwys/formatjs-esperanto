@@ -1,24 +1,20 @@
 {
   "name": "@kotwys/formatjs-esperanto",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Esperanto locale for FormatJS",
   "author": "kotwys",
   "license": "MIT",
   "repository": "github:kotwys/formatjs-esperanto",
   "homepage": "https://github.com/kotwys/formatjs-esperanto",
   "scripts": {
-    "clean": "yarn rimraf ./dist",
+    "clean": "rimraf ./dist",
     "prebuild": "yarn clean",
-    "build": "node ./scripts/build.js",
+    "build": "formatjs-localegen -l eo -d dist data/*.yml",
     "prepublish": "yarn build"
   },
   "devDependencies": {
-    "fs-extra": "^9.0.1",
-    "js-yaml": "^3.14.0",
-    "make-plural-compiler": "^5.1.0",
-    "rimraf": "^3.0.2",
-    "serialize-javascript": "^4.0.0",
-    "uglify-js": "^3.10.0"
+    "@kotwys/formatjs-locale-generator": "^0.1.0",
+    "rimraf": "^3.0.2"
   },
   "keywords": [
     "internationalization",

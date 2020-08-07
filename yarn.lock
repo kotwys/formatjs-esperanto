@@ -2,6 +2,18 @@
 # yarn lockfile v1
 
 
+"@kotwys/formatjs-locale-generator@^0.1.0":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@kotwys/formatjs-locale-generator/-/formatjs-locale-generator-0.1.2.tgz#44e8a887abb41fd859f64f8531bdf02cf1dfdc90"
+  integrity sha512-uIMWi9lLbYvM0gcCoM8C9k0WSax3Gdz1QJSYYyogCMaxIFrLkUl4CscEeYgClrYcgDqdvIAdBn4xVx0YROLoOw==
+  dependencies:
+    commander "^6.0.0"
+    fs-extra "^9.0.1"
+    js-yaml "^3.14.0"
+    make-plural-compiler "^5.1.0"
+    serialize-javascript "^4.0.0"
+    uglify-js "^3.10.1"
+
 argparse@^1.0.7:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
@@ -26,6 +38,11 @@ brace-expansion@^1.1.7:
   dependencies:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
+
+commander@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.0.0.tgz#2b270da94f8fb9014455312f829a1129dbf8887e"
+  integrity sha512-s7EA+hDtTYNhuXkTlhqew4txMZVdszBmKWSPEMxGr8ru8JXR7bLUFIAtPhcSuFdJQ0ILMxnJi8GkQL0yvDy/YA==
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -154,10 +171,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-uglify-js@^3.10.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.10.0.tgz#397a7e6e31ce820bfd1cb55b804ee140c587a9e7"
-  integrity sha512-Esj5HG5WAyrLIdYU74Z3JdG2PxdIusvj6IWHMtlyESxc7kcDz7zYlYjpnSokn1UbpV0d/QX9fan7gkCNd/9BQA==
+uglify-js@^3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.10.1.tgz#dd14767eb7150de97f2573a5ff210db14fffe4ad"
+  integrity sha512-RjxApKkrPJB6kjJxQS3iZlf///REXWYxYJxO/MpmlQzVkDWVI3PSnCBWezMecmTU/TRkNxrl8bmsfFQCp+LO+Q==
 
 universalify@^1.0.0:
   version "1.0.0"
